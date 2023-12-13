@@ -1,0 +1,29 @@
+<!-- templates/code_input.html -->
+
+{% extends "base.html" %}
+
+<!-- Enter extra title stuff if wanted -->
+{% block title %}
+{% endblock title %}
+
+<!-- main content block with prompt box and buttons-->
+{% block content %}
+<form>
+    <textarea class="prompt" name="prompt" placeholder="Enter Prompt">{{ prompt }}</textarea>
+    <div class="controls">
+        <button formmethod="post" formaction="{{ url_for('reset_session') }}">
+            Reset Session ♻️
+        </button>
+        <button formmethod="post" formaction="{{ url_for('submit_request') }}">
+            Submit Request 💾
+        </button>
+    </div>
+</form>
+{% endblock content %}
+
+<!-- response block -->
+{% block response %}
+<div class="response">
+    {{ response }}
+</div>
+{% endblock response %}
